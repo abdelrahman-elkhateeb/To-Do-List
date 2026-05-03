@@ -1,4 +1,4 @@
-import { getTodos } from "../services/todoServices";
+import { getTodos } from "./todoServices";
 import { useQuery } from "@tanstack/react-query";
 
 export function useTodo() {

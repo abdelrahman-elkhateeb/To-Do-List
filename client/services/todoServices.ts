@@ -1,3 +1,4 @@
+import { Todo } from "@/types/todo.types";
 import axios from "axios";
 
 export async function getTodos() {
@@ -5,14 +6,7 @@ export async function getTodos() {
   return data.data;
 };
 
-interface Todo {
-  _id: string;
-  title: string;
-  completed: boolean;
-  priority: "Low" | "Medium" | "High";
-};
-
-export async function updateTodos(updates: Partial<Todo>, id: string) {
+export async function updateTodos(id: string, updates: Partial<Todo>) {
   const { data } = await axios.patch(`${process.env.NEXT_PUBLIC_API_URL}/${id}`, updates);
   return data.data
 };
