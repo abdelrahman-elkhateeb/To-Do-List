@@ -8,6 +8,11 @@ const todoSchema = new mongoose.Schema({
   completed: {
     type: Boolean,
     default: false
+  },
+  priority: {
+    type: String,
+    enum: ['low', 'medium', 'high'],
+    required: true
   }
 }, { timestamps: true })
 

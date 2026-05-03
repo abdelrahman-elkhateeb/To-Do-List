@@ -13,6 +13,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+// create todos
 router.post("/", async (req, res) => {
   try {
     const newTodo = await Todo.create(req.body);
@@ -22,6 +23,7 @@ router.post("/", async (req, res) => {
   }
 });
 
+// update todos
 router.patch("/:id", async (req, res) => {
   const { id } = req.params;
   const updateData = req.body;
@@ -31,12 +33,14 @@ router.patch("/:id", async (req, res) => {
     if (!updatedTodo) {
       return res.status(404).json({ success: false, message: "the tasks not found" });
     }
+
     res.status(200).json({ success: true, data: updatedTodo });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
 });
 
+// delete a todos
 router.delete("/:id", async (req, res) => {
   const { id } = req.params;
 
