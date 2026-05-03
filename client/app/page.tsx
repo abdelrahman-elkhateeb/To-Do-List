@@ -2,8 +2,7 @@
 import { useTodo } from "../services/useTodo"
 
 export default function Page() {
-  const { todos } = useTodo();
-  console.log(todos);
+  const { todos, isPending: isTodoLoading, error } = useTodo();
 
   return (
     <div>
