@@ -8,3 +8,8 @@ export interface Todo {
   createdAt?: string;
   updatedAt?: string;
 }
+
+export type ISubmitTodo = {
+  title: string,
+  priority: string
+}

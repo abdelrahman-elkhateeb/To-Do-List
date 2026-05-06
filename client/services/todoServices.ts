@@ -1,12 +1,35 @@
-import { Todo } from "@/types/todo.types";
+import { ISubmitTodo, Todo } from "@/types/todo.types";
 import axios from "axios";
 
 export async function getTodos() {
-  const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}`);
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
+  if (!API_URL) {
+    throw new Error("API URL is not defined in environment variables");
+  }
+  const { data } = await axios.get(`${API_URL}`);
   return data.data;
 };
 
 export async function updateTodos(id: string, updates: Partial<Todo>) {
-  const { data } = await axios.patch(`${process.env.NEXT_PUBLIC_API_URL}/${id}`, updates);
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
+  if (!API_URL) {
+    throw new Error("API URL is not defined in environment variables");
+  }
+
+  const { data } = await axios.patch(`${API_URL}/${id}`, updates);
   return data.data
 };
+
+
+
+export async function submitTodo(todo: ISubmitTodo) {
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
+  if (!API_URL) {
+    throw new Error("API URL is not defined in environment variables");
+  }
+  const { data } = await axios.post(`${API_URL}`, todo)
+  return data.data
+}
