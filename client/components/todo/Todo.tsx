@@ -1,6 +1,6 @@
 "use client"
 import { useTodo } from "@/services/useTodo";
-import { TodoItem } from "@/components/TodoItem";
+import { TodoItem } from "@/components/todo/TodoItem";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Plus, Loader2 } from "lucide-react";
