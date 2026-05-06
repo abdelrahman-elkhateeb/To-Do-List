@@ -1,7 +1,6 @@
-"use client"
-
 import AddTaskInput from "./AddTaskInput";
 import Heading from "./Heading";
+import TodoItem from "./TodoItem";
 
 export default function TodoPage() {
 
@@ -14,6 +13,8 @@ export default function TodoPage() {
 
         {/* Add Task Section (Shadcn Input + Select + Button) */}
         <AddTaskInput />
+
+        <TodoItem />
       </div>
     </div>
   );

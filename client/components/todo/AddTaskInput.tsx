@@ -1,3 +1,5 @@
+"use client"
+
 import {
   Select,
   SelectContent,
@@ -57,6 +59,7 @@ export default function AddTaskInput() {
           </Button>
         </div>
       </form>
+
     </div>
   )
 }
