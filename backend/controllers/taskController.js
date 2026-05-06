@@ -1,4 +1,6 @@
-export function createTodo(req, res) {
+import Todo from "../models/todo.models.js";
+
+export async function createTodo(req, res) {
   try {
     const newTodo = await Todo.create(req.body);
     res.status(201).json({ success: true, data: newTodo })
@@ -7,7 +9,7 @@ export function createTodo(req, res) {
   }
 }
 
-export function getTodos(req, res) {
+export async function getTodos(req, res) {
   try {
     const todo = await Todo.find({});
     res.status(200).json({ success: true, data: todo });
@@ -16,7 +18,7 @@ export function getTodos(req, res) {
   }
 }
 
-export function updateTodo(req, res) {
+export async function updateTodo(req, res) {
   const { id } = req.params;
   const updateData = req.body;
 
@@ -32,7 +34,7 @@ export function updateTodo(req, res) {
   }
 }
 
-export function deleteTodo(req, res) {
+export async function deleteTodo(req, res) {
   const { id } = req.params;
 
   try {
