@@ -22,8 +22,6 @@ export async function updateTodos(id: string, updates: Partial<Todo>) {
   return data.data
 };
 
-
-
 export async function submitTodo(todo: ISubmitTodo) {
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -31,5 +29,16 @@ export async function submitTodo(todo: ISubmitTodo) {
     throw new Error("API URL is not defined in environment variables");
   }
   const { data } = await axios.post(`${API_URL}`, todo)
+  return data.data
+}
+
+export async function deleteTodo(id: string) {
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
+  if (!API_URL) {
+    throw new Error("API URL is not defined in environment variables");
+  }
+
+  const { data } = await axios.delete(`${API_URL}/${id}`);
   return data.data
 }
